@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View, FlatList } from 'react-native'
+import { Text, StyleSheet, View, FlatList, Button, TouchableOpacity, Image } from 'react-native'
 import React, { Component } from 'react'
 
 export default class Pantallab extends Component {
@@ -26,21 +26,27 @@ export default class Pantallab extends Component {
   }
 
   render() {
+    const getItem = (item) => {
+      console.log(item.id);
+      this.props.navigation.navigate("Id", { Nombre: item.Nombre, Codigo: item.Codigo, Tarea: item.Tarea, Imagen: item.Imagen });
+    }
     const renderUser = ({ item }) => {
       return (
         <View style={{ margin: 10, borderWidth: 0.5, padding: 10 }}>
-          <Text style={{ color: 'black', fontSize: 16, fontWeight: 'bold' }}>
-            User {item.id}
-          </Text>
-          <Text style={{ color: 'black' }}>Nombre : {item.Nombre}</Text>
-          <Text style={{ color: 'black' }}>Codigo : {item.Codigo}</Text>
-          <Text style={{ color: 'black' }}>Tarea : {item.Tarea}</Text>
+          <TouchableOpacity onPress={() => getItem(item)}>
+            <Text style={{ color: 'black', fontSize: 16, fontWeight: 'bold' }}>
+              User {item.id}
+            </Text>
+            <Text style={{ color: 'black' }}>Nombre : {item.Nombre}</Text>
+            <Text style={{ color: 'black' }}>Codigo : {item.Codigo}</Text>
+            <Text style={{ color: 'black' }}>Tarea : {item.Tarea}</Text>
+          </TouchableOpacity>
         </View>
       );
     };
     return (
       <View>
-        <Text styles = {{fontSize: 20}}>BIENVENIDO {this.props.route.params.nombre}</Text>
+        <Text styles={{ fontSize: 20 }}>BIENVENIDO {this.props.route.params.nombre}</Text>
         <Text>Código: {this.props.route.params.codigo}</Text>
 
         <FlatList

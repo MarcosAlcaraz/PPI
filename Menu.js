@@ -5,6 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import INICIO from './screens/Inicio';
 import PANTALLAB from './screens/MenuDeEstudiante';
+import ACCIONES from './screens/Acciones';
+import ALTAS from './screens/Altas';
+import ID from './screens/Id';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +17,9 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="inicio" component={INICIO} />
         <Stack.Screen name="Menú de Estudiante" component={PANTALLAB} />
+        <Stack.Screen name="Acciones" component={ACCIONES} />
+        <Stack.Screen name="Altas" component={ALTAS} />
+        <Stack.Screen name="Id" component={ID} />
       </Stack.Navigator>
     </NavigationContainer>
   );

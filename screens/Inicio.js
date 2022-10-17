@@ -38,7 +38,7 @@ export default class Inicio
               else
               {
                   //aqui se envian parametros
-                  _this.props.navigation.navigate("Menú de Estudiante", { nombre: datos[2], codigo: datos[1] });
+                  _this.props.navigation.navigate("Acciones", { nombre: datos[2], codigo: datos[1] });
               }
           }
       };
@@ -69,7 +69,6 @@ export default class Inicio
         </View>
       </View>
     )
-
   }
 }
 
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
   btn: {
     marginTop: 30,
     width: 150,
-    marginLeft: 122
+    alignSelf: 'center',
   },
   encabezado: {
     fontSize: 27,
